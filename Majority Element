@@ -1,0 +1,32 @@
+Q Link : https://leetcode.com/problems/majority-element/description/?envType=study-plan-v2&id=top-interview-150
+
+
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+         if(nums.empty()) {
+            // Handle empty vector
+            return 0; // Or any other appropriate value
+        }
+
+        int at = 1;
+        int curr = nums[0];
+
+        for(int i = 1; i < nums.size(); i++) {
+            if(nums[i] == curr) {
+                at++;
+            }
+            else {
+                at--;
+                if(at <= 0) {
+                    curr = nums[i];
+                    at = 1; // Reset the count for the new element
+                }
+            }
+        }
+
+        return curr;
+        
+    }
+};
