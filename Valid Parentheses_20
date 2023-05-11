@@ -1,0 +1,36 @@
+Q Link: https://leetcode.com/problems/valid-parentheses/description/
+
+class Solution {
+public:
+    bool isValid(string S) {
+        stack<char> s; 
+        
+        for(auto t : S){
+            if(t == '(' || t == '{' || t == '['){
+                s.push(t);
+            }
+            else{
+                if(s.empty()) {  // Check if stack is empty before accessing top
+                    return false;
+                }
+                if(t == ')' && s.top() == '('){
+                    s.pop();
+                }
+                else if(t == '}' && s.top() == '{'){
+                    s.pop();
+                }
+                else if(t == ']' && s.top() == '['){
+                    s.pop();
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+
+        if(s.size() != 0){
+            return false;
+        }
+        return true;
+    }
+};
