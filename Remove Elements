@@ -1,0 +1,21 @@
+Q Link: https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        vector<int> res; 
+        for(auto t : nums){
+            if(t != val){
+                res.push_back(t);
+            }
+        }
+        int i = 0;
+        for(auto t : res){
+            nums[i] = t;
+            i++;
+        }
+
+        return res.size();
+        
+    }
+};
