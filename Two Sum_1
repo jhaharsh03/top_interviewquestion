@@ -1,0 +1,47 @@
+
+//optimized approach by using unordered map not by normal map i did this misate to use ordered map
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> numMap;
+        vector<int> res;
+        
+        for (int i = 0; i < nums.size(); i++) {
+            int complement = target - nums[i];
+            
+            if (numMap.count(complement)) {
+                res.push_back(numMap[complement]);
+                res.push_back(i);
+                break;
+            }
+            
+            numMap[nums[i]] = i;
+        }
+        
+        return res;
+    }
+};
+
+
+
+
+//Not much optimized we can optimize this solm by applying map into the action
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> res;
+        int n = nums.size();
+        for(int i = 0; i< n ; i++){
+            for(int j = i+1; j< n; j++){
+                if(nums[i] + nums[j] == target){
+                   res.push_back(i);
+                   res.push_back(j);
+                   break;
+                }
+            }
+        }
+
+        return res;
+        
+    }
+};
