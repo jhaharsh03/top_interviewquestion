@@ -1,0 +1,24 @@
+Q Link: https://leetcode.com/problems/minimum-size-subarray-sum/description/?envType=study-plan-v2&id=top-interview-150
+
+// Not to optimized do it again so it then optimises
+
+
+class Solution {
+public:
+    int minSubArrayLen(int s, vector<int>& nums) {
+       int l = 0, r = 0, n = nums.size(), sum = 0, len = INT_MAX; 
+        bool found = false; // Flag variable
+
+        while(r < n) {
+            sum += nums[r++];
+            while(sum >= s) {
+                len = min(len, r - l);
+                sum -= nums[l++];
+                found = true; // Set flag to true when a valid subarray is found
+            }
+        }
+
+        return found ? len : 0; // Return 1 if found, 0 otherwise
+        
+    }
+};
