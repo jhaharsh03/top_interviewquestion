@@ -1,0 +1,25 @@
+Q Link: https://leetcode.com/problems/happy-number/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+
+    int next(int n){
+        int newn = 0; 
+        while(n){
+            int num = n%10;
+            newn += num*num; 
+            n /= 10;
+        }
+        return newn;
+    }
+
+    bool isHappy(int n) {
+        unordered_set<int> s; 
+        while(n != 1 && !s.count(n)){
+            s.insert(n);
+            n = next(n);
+        }
+        return n == 1;
+        
+    }
+};
