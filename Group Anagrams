@@ -1,0 +1,19 @@
+Q Link: https://leetcode.com/problems/group-anagrams/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>>mp;
+        for(auto t : strs){
+            string s = t; 
+            sort(s.begin(), s.end());
+            mp[s].push_back(t);
+        }
+         vector<vector<string>>ans;
+        
+        for(auto t : mp){
+            ans.push_back(t.second);
+        }
+        return ans;
+    }
+};
