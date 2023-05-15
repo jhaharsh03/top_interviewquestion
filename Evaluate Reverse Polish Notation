@@ -1,0 +1,28 @@
+Q Link: https://leetcode.com/problems/evaluate-reverse-polish-notation/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> st; 
+        for(auto t : tokens){
+            if(t == "+" || t == "-" || t == "*" || t == "/"){
+                long long o1 = st.top(); 
+                st.pop();
+                long long o2 = st.top();
+                st.pop();
+
+                if(t == "+") o1 = o2 + o1;
+                if(t == "-") o1 = o2 - o1;
+                if(t == "*") o1 = o2*o1;
+                if(t == "/") o1 = o2/o1;
+
+                st.push(o1);
+
+            }
+            else{
+                st.push(stoi(t));
+            }
+        }
+        return st.top();
+    }
+};
