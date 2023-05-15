@@ -1,0 +1,21 @@
+Q Link: https://leetcode.com/problems/insert-interval/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& iv, vector<int>& newInterval) {
+        iv.push_back(newInterval);
+        vector<vector<int>> res; 
+        sort(iv.begin(),iv.end());
+        res.push_back(iv[0]);
+        int j = 0;
+        for(int i = 1; i< iv.size() ; i++){
+            if(res[j][1]>=iv[i][0])res[j][1] = max(res[j][1], iv[i][1]);
+           else{
+            res.push_back(iv[i]);
+            j++;
+              }
+        }
+        return res;
+        
+    }
+};
