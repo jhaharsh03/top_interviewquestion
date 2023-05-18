@@ -1,0 +1,38 @@
+Q Link : https://leetcode.com/problems/symmetric-tree/description/?envType=study-plan-v2&id=top-interview-150
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isy(TreeNode *p, TreeNode *q){
+          if(p == NULL && q == NULL){
+            return true;
+        }
+        if(p == NULL || q == NULL)return false;
+        if(p->val != q->val)return false;
+
+        return (isy(p->left , q->right) && isy(p->right, q->left));
+
+    }
+
+    bool isSymmetric(TreeNode* root) {
+        if(!root || root->left == NULL && root->right == NULL){
+            return true;
+        }
+        if(root->left == NULL || root->right == NULL)return false;
+    
+
+    return isy(root->left, root->right);
+    }
+};
+
+
