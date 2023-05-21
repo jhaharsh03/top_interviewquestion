@@ -1,0 +1,12 @@
+Q Link: https://leetcode.com/problems/single-number/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int x = 0;
+        for(auto t : nums){
+            x^=t;
+        }
+        return x;        
+    }
+};
