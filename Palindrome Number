@@ -1,0 +1,22 @@
+Q Link : https://leetcode.com/problems/palindrome-number/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+       
+       int  p = x;
+       long long q = 0; 
+       p = abs(p);
+
+       while(p){
+           q*=10;
+           q += p%10;
+            p/=10;
+       }
+        cout<<q<<endl;
+       return (q==x);
+    
+
+        
+    }
+};
