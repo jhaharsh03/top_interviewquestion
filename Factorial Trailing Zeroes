@@ -1,0 +1,17 @@
+Q Link: https://leetcode.com/problems/factorial-trailing-zeroes/description/?envType=study-plan-v2&id=top-interview-150
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        int count = 0; 
+        for(int i = 5; i<= n ; i+=5){
+            int j = i;
+            while(j%5 == 0 && j != 0){
+                count++;
+                j/=5;
+            }
+        }
+        return count;
+    }
+};
+
+
