@@ -1,0 +1,8 @@
+Q Link: https://leetcode.com/problems/sqrtx/description/?envType=study-plan-v2&id=top-interview-150
+class Solution {
+public:
+    int mySqrt(int x) {
+        int ans = sqrt(x);
+        return ans;
+    }
+};
