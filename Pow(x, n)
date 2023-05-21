@@ -1,0 +1,9 @@
+Q Link: https://leetcode.com/problems/powx-n/description/?envType=study-plan-v2&id=top-interview-150
+
+class Solution {
+public:
+    double myPow(double x, int n) {
+        double ans = pow(x, n);
+        return ans;
+    }
+};
